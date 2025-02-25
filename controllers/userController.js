@@ -9,11 +9,11 @@ const { JWT_EXPIRED } = require('../constants/index');
 const registerUser = async (req, res) => {
     try {
         const { name, email, password, role } = req.body;
-        const hashPassword = await bcrypt.hash(password, 14);
-        const newUser = new User({
+        const hashedPassword = await bcrypt.hash(password, 14);
+        const newUser = await User.create({
             name,
             email,
-            password: hashPassword,
+            password: hashedPassword,
             role
         })
         res.status(201).json({
