@@ -24,6 +24,9 @@ app.use(express.json());
 app.use('/api/user', userRoutes);
 app.use('/api/profile', profileUpdateRoutes);
 
+
+
+
 app.get('/', (req, res) => {
     res.send(`Server is running`)
 })
